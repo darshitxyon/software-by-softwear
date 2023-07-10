@@ -1,0 +1,36 @@
+{
+  "applications": "*",
+  "changelogDate": "20230701132259",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "seller",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "UUID"
+    },
+    {
+      "fieldName": "busineessName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "invoiceCounter",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Seller",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

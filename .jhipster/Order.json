@@ -1,0 +1,53 @@
+{
+  "applications": "*",
+  "changelogDate": "20230701132302",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "jhi_order",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Order",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "buyer",
+      "ownerSide": true,
+      "relationshipName": "buyer",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "seller",
+      "ownerSide": true,
+      "relationshipName": "seller",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "transport",
+      "ownerSide": true,
+      "relationshipName": "transport",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "item",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "item",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

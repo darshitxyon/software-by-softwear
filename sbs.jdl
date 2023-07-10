@@ -1,0 +1,63 @@
+
+entity Seller {
+    id UUID,
+	busineessName String,
+    invoiceCounter Long,
+    phoneNumber String,
+    email String
+}
+
+entity Buyer {
+    id UUID,
+	busineessName String,
+    phoneNumber String,
+    email String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Item {
+	id UUID,
+	name String,
+    description String,
+    quantityType QuantityType,
+}
+
+entity Order {
+    date Instant,
+    updatedAt Instant,
+    createdAt Instant
+}
+
+entity Transport {
+    name String
+}
+
+enum QuantityType {
+    BALE, MTS
+}
+
+relationship OneToOne {
+	Order{buyer} to Buyer,
+    Order{seller} to Seller
+    Order{transport} to Transport
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Order to Item{order}
+}
+
+
+// Set pagination options
+paginate Item, Order with infinite-scroll
+paginate Buyer, Seller, Transport with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
