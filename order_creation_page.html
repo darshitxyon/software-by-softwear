@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Creation Page</title>
+  <script src="create_item_button.js"></script>
+</head>
+<body>
+  <h1>Order Creation Page</h1>
+  
+  <form id="orderCreationForm">
+    <div id="itemForm">
+      <label for="itemInput">Item:</label>
+      <input type="text" id="itemInput">
+      <button type="button" id="itemSubmitButton">Add Item</button>
+    </div>
+  </form>
+  
+  <button type="button" id="addItemButton">Add Item</button>
+  <button type="button" id="removeItemButton">Remove Item</button>
+  
+  <script>
+    // Shared dependencies
+    var orderCreationForm = document.getElementById("orderCreationForm");
+    var addItemButton = document.getElementById("addItemButton");
+    var removeItemButton = document.getElementById("removeItemButton");
+    var createItemButton = document.getElementById("itemSubmitButton");
+    
+    // Event listener for adding item
+    addItemButton.addEventListener("click", function() {
+      var itemForm = document.getElementById("itemForm");
+      var newItemForm = itemForm.cloneNode(true);
+      orderCreationForm.appendChild(newItemForm);
+    });
+    
+    // Event listener for removing item
+    removeItemButton.addEventListener("click", function() {
+      var itemForms = document.querySelectorAll("#itemForm");
+      if (itemForms.length > 1) {
+        var lastItemForm = itemForms[itemForms.length - 1];
+        orderCreationForm.removeChild(lastItemForm);
+      }
+    });
+  </script>
+</body>
+</html>
